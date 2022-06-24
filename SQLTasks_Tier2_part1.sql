@@ -19,9 +19,7 @@ select facid,
 
 /* Q4: details of id 1 and 5 w/o using OR */
 select * from Facilities
-       where facid%2 <> 0
-             and facid < 6
-             and facid <> 3;
+       where facid in (1,5);
 
 /* Q5: List of facilities w label */
 select name,
@@ -53,7 +51,7 @@ select distinct concat_ws(', ', surname, firstname) as full_name,
 select name,
        case when memid = 0 then 'GUEST'
        else concat_ws(', ', firstname, surname) end as members,
-       case when memid = 0 then guestcost 
+       case when memid = 0 then guestcost * slots 
        else membercost * slots end as costs
        from Bookings
        left join Members
@@ -69,7 +67,7 @@ select name,
 select name,
        case when m.memid = 0 then 'GUEST'
        else concat_ws(', ', surname, firstname) end as full_name,
-       case when m.memid = 0 then guestcost
+       case when m.memid = 0 then guestcost * slots
        else membercost * slots end as costs
        from Members as m,
        (select memid, facid, slots
