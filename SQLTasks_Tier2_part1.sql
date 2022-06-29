@@ -1,3 +1,8 @@
+/* ************************************************************************************
+   *   The link for Part 2 is:                                                        *
+   *   https://github.com/rikki731/springboard/blob/main/SQLTasks_Tier2_part2.ipynb   *
+   ************************************************************************************ */
+
 /* Q1: List facilities charge a fee to members */
 select name 
        from Facilities
@@ -78,4 +83,7 @@ select name,
        where m.memid = b.memid and f.facid = b.facid and costs > 30.0
 	   order by costs desc;
 
-             
+/* ************************************************************************************
+   *   The link for Part 2 is:                                                        *
+   *   https://github.com/rikki731/springboard/blob/main/SQLTasks_Tier2_part2.ipynb   *
+   ************************************************************************************ */
